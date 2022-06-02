@@ -338,6 +338,9 @@ namespace linq
 };
 
             var movieNames = listOfFilms.Select(film => film.Name);
+            var movieNamesWithIndex = listOfFilms.Select((film, index) => $"The movie named {film.Name} is at position {index}");
+
+            var popularFilms = listOfFilms.Where(film => film.Screenings >= 100).Select(film => film.Name);
         }
     }
 }
