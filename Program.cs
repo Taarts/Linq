@@ -17,9 +17,9 @@ namespace linq
             var scores = new List<int> { 42, 100, 98, 15 };
 
             // Here is our handy Double-er
-            Func<int, int> MultiplyBy2 = value => value * 2;
+            // Func<int, int> MultiplyBy2 = value => value * 2;
 
-            var newScores = scores.Select(MultiplyBy2);
+            var newScores = scores.Select(score => score * 2);
             foreach (var score in newScores)
             {
                 Console.WriteLine(score);
