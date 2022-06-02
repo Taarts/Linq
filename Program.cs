@@ -7,17 +7,17 @@ namespace linq
 {
     class Program
     {
-        static int MultiplyBy2(int value)
-        {
-            return value * 2;
-        }
+        // static int MultiplyBy2(int value)
+        // {
+        //     return value * 2;
+        // }
         static void Main(string[] args)
         {
             // Here is our original array
             var scores = new List<int> { 42, 100, 98, 15 };
 
             // Here is our handy Double-er
-            // Func<int, int> MultiplyBy2 = value => value * 2;
+            Func<int, int> MultiplyBy2 = value => value * 2;
 
             // Make a new list to store the results
             var newScores = new List<int>();
