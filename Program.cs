@@ -1,5 +1,5 @@
 ﻿using System;
-// using System.Linq;
+using System.Linq;
 
 using System.Collections.Generic;
 
@@ -18,19 +18,20 @@ namespace linq
 
             // Here is our handy Double-er
             Func<int, int> MultiplyBy2 = value => value * 2;
+            var newScores = scores.Select(MultiplyBy2);
 
-            // Make a new list to store the results
-            var newScores = new List<int>();
+            // // Make a new list to store the results
+            // var newScores = new List<int>();
 
-            // Go through each score in the scores list
-            foreach (var score in scores)
-            {
-                // Make a doubling of that score
-                var doubled = MultiplyBy2(score);
+            // // Go through each score in the scores list
+            // foreach (var score in scores)
+            // {
+            //     // Make a doubling of that score
+            //     var doubled = MultiplyBy2(score);
 
-                // Add it to our new list
-                newScores.Add(doubled);
-            }
+            //     // Add it to our new list
+            //     newScores.Add(doubled);
+            // }
 
             // Print out the scores comma separated
             Console.WriteLine(String.Join(',', newScores));
