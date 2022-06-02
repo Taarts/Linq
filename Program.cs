@@ -61,7 +61,7 @@ namespace linq
 
             Console.WriteLine();
 
-            var movies = new List<Movie>()
+            var listOfFilms = new List<Movie>()
 {
     new Movie()
     {
@@ -336,6 +336,8 @@ namespace linq
         Budget = 844331
     },
 };
+
+            var movieNames = listOfFilms.Select(film => film.Name);
         }
     }
 }
