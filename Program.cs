@@ -16,6 +16,11 @@ namespace linq
         public double TotalRevenue { get; set; }
         public double Cost { get; set; }
         public double Budget { get; set; }
+
+        public double RevenuePerScreening()
+        {
+            return TotalRevenue / Screenings;
+        }
     }
     class Program
     {
@@ -338,9 +343,23 @@ namespace linq
 };
 
             var movieNames = listOfFilms.Select(film => film.Name);
+            // var averages = listOfFilms.Select(film => film.RevenuePerScreening());
             var movieNamesWithIndex = listOfFilms.Select((film, index) => $"The movie named {film.Name} is at position {index}");
+            // list of popular films
+            var popularFilms = listOfFilms.Where(film => film.Screenings >= 100);
+            // translate the list 
+            var popularFilmNames = popularFilms.Select(film => film.Name);
 
-            var popularFilms = listOfFilms.Where(film => film.Screenings >= 100).Select(film => film.Name);
+            var popularMoviesNamesInOneLine = listOfFilms.Where(film => film.Screenings >= 100).Select(film => film.Name);
+
+            // var allRevenues = listOfFilms.Select(film => film.TotalRevenue);
+            // var totalRevenue = allRevenues.Sum();
+
+            var totalRevenueAll = listOfFilms.Sum(film => film.TotalRevenue);
+            Console.WriteLine(totalRevenueAll);
+
+            // Console.WriteLine(String.Join(", ", popularFilmNames));
+
         }
     }
 }
