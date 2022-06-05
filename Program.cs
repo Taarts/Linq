@@ -358,7 +358,18 @@ namespace linq
             var totalRevenueAll = listOfFilms.Sum(film => film.TotalRevenue);
             Console.WriteLine(totalRevenueAll);
 
-            // Console.WriteLine(String.Join(", ", popularFilmNames));
+            var favoriteMovie = listOfFilms.FirstOrDefault(film => film.Name == "Back To The Future");
+
+            if (favoriteMovie == null)
+            {
+                // variable is null - guard clause - gives result instead of crashing if null
+                Console.WriteLine("No more parachutes");
+            }
+            else
+            {
+                // finds the movie and will return the value
+                Console.WriteLine($"My favorite movie is {favoriteMovie.Name}");
+            }
 
         }
     }
